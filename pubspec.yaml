@@ -38,7 +38,8 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_svg: ^2.0.4
   shimmer: ^2.0.0
-  internet_connection_checker:
+  #  internet_connection_checker:
+  internet_connection_checker_plus: ^1.0.1
   flutter_carousel_widget: ^2.0.2
   string_extensions: ^0.6.9
   timeago: ^3.3.0
@@ -50,6 +51,9 @@ dependencies:
   # service locator
   get_it: ^7.2.0
   validators2: ^4.0.0
+  image_network: ^2.5.1
+  image_picker_for_web: ^2.1.12
+  image_picker: ^0.8.7+1
 
   # Database
   hive: ^2.2.3
@@ -65,6 +69,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   freezed_annotation: ^2.2.0
+  firebase_core: ^2.9.0
+  firebase_storage: ^11.1.0
 
 dev_dependencies:
   flutter_test:

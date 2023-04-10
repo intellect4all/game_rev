@@ -15,7 +15,6 @@ class StarRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> stars = [];
-    log(rating.average.toString());
     for (var i = 1; i < 6; i++) {
       final icon = i <= rating.average
           ? Icons.star
@@ -36,9 +35,9 @@ class StarRating extends StatelessWidget {
       children: [
         ...stars,
         const SizedBox(width: 10),
-        if (rating.total > 0)
+        if (rating.count > 0)
           Text(
-            "(${rating.total})",
+            "(${rating.count})",
             style: context.textTheme.bodyLarge?.copyWith(
               fontSize: isGameScreen ? 23 : 15,
             ),

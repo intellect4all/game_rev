@@ -1,4 +1,6 @@
-class Review {
+import 'package:equatable/equatable.dart';
+
+class Review extends Equatable {
   final String id;
   final String userId;
   final String gameId;
@@ -16,9 +18,21 @@ class Review {
     required this.createdAt,
     required this.votes,
   });
+
+  @override
+  List<Object?> get props =>
+      [
+        id,
+        userId,
+        gameId,
+        comment,
+        rating,
+        createdAt,
+        votes,
+      ];
 }
 
-class Location {
+class Location extends Equatable {
   final String city;
   final String country;
   final double latitude;
@@ -32,9 +46,19 @@ class Location {
     required this.longitude,
     required this.countryCode,
   });
+
+  @override
+  List<Object?> get props =>
+      [
+        city,
+        country,
+        latitude,
+        longitude,
+        countryCode,
+      ];
 }
 
-class BasicUser {
+class BasicUser extends Equatable {
   final String avatar;
   final String fullName;
   final String id;
@@ -52,9 +76,19 @@ class BasicUser {
   String get address {
     return '${location.city}, ${location.country}';
   }
+
+  @override
+  List<Object?> get props =>
+      [
+        avatar,
+        fullName,
+        id,
+        username,
+        location,
+      ];
 }
 
-class Vote {
+class Vote extends Equatable {
   final String userId;
   final String reviewId;
   final bool isUpvote;
@@ -66,9 +100,18 @@ class Vote {
     required this.isUpvote,
     required this.isDownvote,
   });
+
+  @override
+  List<Object?> get props =>
+      [
+        userId,
+        reviewId,
+        isUpvote,
+        isDownvote,
+      ];
 }
 
-class ReviewData {
+class ReviewData extends Equatable {
   final Review review;
   final BasicUser user;
   final Vote? vote;
@@ -78,4 +121,12 @@ class ReviewData {
     required this.user,
     required this.vote,
   });
+
+  @override
+  List<Object?> get props =>
+      [
+        review,
+        user,
+        vote,
+      ];
 }

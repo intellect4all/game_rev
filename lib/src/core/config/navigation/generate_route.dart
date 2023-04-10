@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:game_rev/src/features/dashboard/presentation/admin_screen.dart';
+import 'package:game_rev/src/features/admin/presentation/screens/add_game_screen.dart';
+import 'package:game_rev/src/features/admin/presentation/screens/admin_screen.dart';
+import 'package:game_rev/src/features/dashboard/presentation/flagged_reviews.dart';
 import 'package:game_rev/src/features/dashboard/presentation/game_screen.dart';
 import 'package:game_rev/src/features/dashboard/presentation/home_screen.dart';
 
@@ -96,6 +98,18 @@ class GenerateRoutes {
           builder: (_) => GameScreen(
             game: args,
           ),
+          settings: settings,
+        );
+
+      case AddGameScreen.routeName:
+        return MaterialPageRoute(
+          builder: (_) => const AddGameScreen(),
+          settings: settings,
+        );
+
+      case FlaggedReviewsScreens.routeName:
+        return MaterialPageRoute(
+          builder: (_) => const FlaggedReviewsScreens(),
           settings: settings,
         );
 

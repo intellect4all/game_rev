@@ -10,15 +10,27 @@ abstract class ApiCaller {
     required String url,
     Map<String, dynamic>? params,
   });
+
   Future<ApiResponse> post({
     required String url,
     required Map<String, dynamic> body,
+  });
+
+  Future<ApiResponse> put({
+    required String url,
+    required Map<String, dynamic> body,
+  });
+
+  Future<ApiResponse> delete({
+    required String url,
+    Map<String, dynamic>? params,
   });
 }
 
 class DioApiCaller extends ApiCaller {
   final Dio _dio;
   final AuthenticationManager _authManager;
+
   DioApiCaller(this._dio, this._authManager) {
     _addInterceptors();
   }
@@ -85,7 +97,6 @@ class DioApiCaller extends ApiCaller {
           return handler.next(options); //continue
         },
         onResponse: (response, handler) {
-
           if (response.statusCode == 401) {
             _authManager.logout();
           }
@@ -99,6 +110,54 @@ class DioApiCaller extends ApiCaller {
   Future<String> _getToken() async {
     final token = _authManager.getJwtToken();
     return token ?? "";
+  }
+
+  @override
+  Future<ApiResponse> delete(
+      {required String url, Map<String, dynamic>? params}) async {
+    try {
+      log("DELETE: $url, params: $params");
+      final res = await _dio.delete(url, queryParameters: params);
+      return ApiResponse.fromJson(res.data, res.statusCode ?? 500);
+    } on DioError catch (e) {
+      return ApiResponse(
+        data: e.response?.data,
+        statusCode: e.response?.statusCode ?? 500,
+        message: e.response?.data['message'] ?? AppTexts.errorMessage,
+      );
+    } catch (e, s) {
+      log("Error from post cathc $e");
+      log("Error from post cathc $s");
+      return ApiResponse(
+        data: null,
+        statusCode: 400,
+        message: AppTexts.errorMessage,
+      );
+    }
+  }
+
+  @override
+  Future<ApiResponse> put(
+      {required String url, required Map<String, dynamic> body}) async {
+    try {
+      log("PUT: $url, body: $body");
+      final res = await _dio.put(url, data: body);
+      return ApiResponse.fromJson(res.data, res.statusCode ?? 500);
+    } on DioError catch (e) {
+      return ApiResponse(
+        data: e.response?.data,
+        statusCode: e.response?.statusCode ?? 500,
+        message: e.response?.data['message'] ?? AppTexts.errorMessage,
+      );
+    } catch (e, s) {
+      log("Error from post cathc $e");
+      log("Error from post cathc $s");
+      return ApiResponse(
+        data: null,
+        statusCode: 400,
+        message: AppTexts.errorMessage,
+      );
+    }
   }
 }
 
@@ -114,6 +173,7 @@ class ApiResponse<T> {
   });
 
   isSuccessful() => statusCode >= 200 && statusCode < 300;
+
   isUnsuccessful() => !isSuccessful();
 
   factory ApiResponse.fromJson(Map<String, dynamic> json, int statusCode) {

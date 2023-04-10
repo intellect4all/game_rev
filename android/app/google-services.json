@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "730429805990",
+    "project_id": "game-rev",
+    "storage_bucket": "game-rev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730429805990:android:377afdbb8701d80369ab67",
+        "android_client_info": {
+          "package_name": "com.brainbytelabs.game_rev.game_rev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730429805990-cc4n57lb4emsv81ecjtm461pscli4tfp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaVzNaLKoVE_0ksUcLdShlxmLC1x7p5N0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730429805990-cc4n57lb4emsv81ecjtm461pscli4tfp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "730429805990-ntlgjrup8fl4cp200g3htotr59cds9h4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.brainbytelabs.gamerev.gameRev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

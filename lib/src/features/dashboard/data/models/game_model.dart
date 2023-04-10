@@ -20,12 +20,12 @@ class GameModel extends Game {
       publisher: json['publisher'] as String,
       title: json['title'] as String,
       summary: json['summary'] as String,
-      releaseDate: Utils.parseDate(json['releaseDate'] as String),
+      releaseDate: json['releaseDate'] as int,
       id: json['id'] as String,
       image: json['image'] as String,
       rating: Rating(
-        total: json['rating']['totalRatings'] ?? 0.0,
-        average: ((json['rating']['average'] ?? 0) as num).toDouble(),
+        count: json['rating']['count'] ?? 0,
+        sum: json['rating']['sum'] ?? 0,
       ),
     );
   }

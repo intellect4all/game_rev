@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:game_rev/src/core/constants/extensions/extensions.dart';
+import 'package:game_rev/src/core/widgets/app_image_widget.dart';
 
 import '../../domain/entity/game.dart';
 import 'star_rating.dart';
@@ -34,14 +36,10 @@ class GameCard extends StatelessWidget {
                   color: context.colorScheme.inverseSurface.withOpacity(0.3),
                   child: Hero(
                     tag: game.id,
-                    child: CachedNetworkImage(
+                    child: AppImageWidget(
                       imageUrl: game.image,
-                      placeholder: (context, url) => const SizedBox(
-                        height: 70,
-                        width: 70,
-                        child: CircularProgressIndicator(),
-                      ),
-                      fit: BoxFit.cover,
+                      height: 180,
+                      width: 120,
                     ),
                   ),
                 ),

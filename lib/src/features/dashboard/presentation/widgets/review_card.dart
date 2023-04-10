@@ -57,8 +57,8 @@ class ReviewCard extends StatelessWidget {
           const SizedBox(height: 10),
           StarRating(
             rating: Rating(
-              total: 0,
-              average: reviewData.review.rating.toDouble(),
+              count: 1,
+              sum: reviewData.review.rating,
             ),
           ),
           const SizedBox(height: 10),

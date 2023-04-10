@@ -15,6 +15,17 @@ class PaginatedResponse<T> {
     required this.hasMore,
   });
 
+  factory PaginatedResponse.empty() {
+    return PaginatedResponse<T>(
+      currentPage: 0,
+      data: [],
+      itemsPerPage: 0,
+      totalItems: 0,
+      totalPages: 0,
+      hasMore: false,
+    );
+  }
+
   copyWithOther({
     PaginatedResponse<T>? other,
   }) {

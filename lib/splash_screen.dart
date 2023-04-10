@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:game_rev/src/features/dashboard/presentation/admin_screen.dart';
+import 'package:game_rev/src/features/admin/presentation/screens/admin_screen.dart';
 import 'package:game_rev/src/features/dashboard/presentation/home_screen.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -131,21 +131,20 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _showDialog() async {
     await showDialog(
       context: context,
-      builder: (context) =>
-          AlertDialog(
-            title: Text("Location Permission"),
-            content: Text("Please enable location permission"),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text("Cancel"),
-              ),
-              TextButton(
-                onPressed: () async => await Geolocator.openAppSettings(),
-                child: Text("Okay"),
-              )
-            ],
+      builder: (context) => AlertDialog(
+        title: Text("Location Permission"),
+        content: Text("Please enable location permission"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Cancel"),
           ),
+          TextButton(
+            onPressed: () async => await Geolocator.openAppSettings(),
+            child: Text("Okay"),
+          )
+        ],
+      ),
     );
   }
 }

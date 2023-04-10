@@ -97,3 +97,29 @@ class CustomTextInput extends StatelessWidget {
     );
   }
 }
+
+class TextFieldParams {
+  final String label;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final bool obscureText;
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final List<TextInputFormatter>? inputFormatters;
+  final VoidCallback? onTap;
+  final String? Function()? isValid;
+
+  TextFieldParams({
+    required this.label,
+    this.validator,
+    this.keyboardType,
+    this.textInputAction,
+    this.obscureText = false,
+    this.controller,
+    this.suffixIcon,
+    this.inputFormatters,
+    this.onTap,
+    this.isValid,
+  });
+}

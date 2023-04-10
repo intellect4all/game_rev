@@ -1,4 +1,6 @@
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+// import 'package:internet_connection_checker/internet_connection_checker.dart';
+
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 /// Abstract class to check if internet exists or not
 abstract class NetworkInfo {
@@ -7,7 +9,7 @@ abstract class NetworkInfo {
 
 /// Class to detect if internet connection exists
 class NetworkInfoImpl implements NetworkInfo {
-  final InternetConnectionChecker connectionChecker;
+  final InternetConnectionCheckerPlus connectionChecker;
 
   NetworkInfoImpl(this.connectionChecker);
 

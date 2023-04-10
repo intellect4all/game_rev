@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:ffi';
 
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:game_rev/src/core/constants/enums.dart';
 import 'package:game_rev/src/core/constants/extensions/extensions.dart';
-import 'package:game_rev/src/features/dashboard/presentation/admin_screen.dart';
+import 'package:game_rev/src/core/widgets/screen_adjuster.dart';
+import 'package:game_rev/src/features/admin/presentation/screens/admin_screen.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:string_extensions/string_extensions.dart';
 
 import '../../../../core/config/navigation/navigation.dart';
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/styles.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../core/widgets/buttons/custom_button.dart';
 import '../../../../core/widgets/buttons/custom_text_button.dart';
@@ -45,30 +43,6 @@ enum TextFields {
   country
 }
 
-class SignupTextFields {
-  final String label;
-  final String? Function(String?)? validator;
-  final TextInputType? keyboardType;
-  final TextInputAction? textInputAction;
-  final bool obscureText;
-  final TextEditingController? controller;
-  final Widget? suffixIcon;
-  final List<TextInputFormatter>? inputFormatters;
-  final VoidCallback? onTap;
-
-  SignupTextFields({
-    required this.label,
-    this.validator,
-    this.keyboardType,
-    this.textInputAction,
-    this.obscureText = false,
-    this.controller,
-    this.suffixIcon,
-    this.inputFormatters,
-    this.onTap,
-  });
-}
-
 class _SignupScreenState extends State<SignupScreen> {
   bool isPasswordVisible = true;
   bool rememberMe = false;
@@ -81,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final ValueNotifier<CountryWithPhoneCode> country =
       ValueNotifier(const CountryWithPhoneCode.gb());
 
-  final fields = <SignupTextFields>[];
+  final fields = <TextFieldParams>[];
   String flagEmoji = "🇬🇧";
 
   @override
@@ -142,78 +116,81 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     _rebuildFields();
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 24.0, top: 20),
-                  child: Text(
-                    "Hello! Register to get started",
-                    style: context.textTheme.titleLarge,
+      body: ScreenAdjuster(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 24.0, top: 20),
+                    child: Text(
+                      "Hello! Register to get started",
+                      style: context.textTheme.titleLarge,
+                    ),
                   ),
-                ),
-                Spacing.vertical(30),
-                Form(
-                  key: formKey,
-                  child: Column(
-                      children: fields
-                          .map(
-                            (e) => ValueListenableBuilder<CountryWithPhoneCode>(
-                                valueListenable: country,
-                                builder: (context, value, child) {
-                                  return CustomTextInput(
-                                    label: e.label,
-                                    prefixIcon: e.suffixIcon,
-                                    validator: e.validator,
-                                    keyboardType: e.keyboardType,
-                                    obscureText: e.obscureText,
-                                    controller: e.controller,
-                                    inputFormatters: e.inputFormatters,
-                                    onTap: e.onTap,
-                                  );
-                                }),
-                          )
-                          .toList()),
-                ),
-                BlocConsumer<AuthenticationBloc, AuthenticationState>(
-                  listener: _authenticationBlocListener,
-                  builder: (context, state) {
-                    return CustomButton(
-                      isLoading: state is AuthenticationLoading,
-                      onPressed: () => signup(context),
-                      child: Text(
-                        "Sign up",
-                        style: context.textTheme.labelMedium,
-                      ),
-                    );
-                  },
-                ),
-                Spacing.vertical(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Already have an account?",
-                        style: context.textTheme.bodyMedium),
-                    CustomTextButton(
-                      onPressed: () {
-                        Navigation.intentWithoutBack(
-                            context, LoginScreen.routeName);
-                      },
-                      child: Text(
-                        "Login Now",
-                        style: context.textTheme.bodyMedium?.copyWith(
-                          color: context.theme.primaryColor,
+                  Spacing.vertical(30),
+                  Form(
+                    key: formKey,
+                    child: Column(
+                        children: fields
+                            .map(
+                              (e) =>
+                                  ValueListenableBuilder<CountryWithPhoneCode>(
+                                      valueListenable: country,
+                                      builder: (context, value, child) {
+                                        return CustomTextInput(
+                                          label: e.label,
+                                          prefixIcon: e.suffixIcon,
+                                          validator: e.validator,
+                                          keyboardType: e.keyboardType,
+                                          obscureText: e.obscureText,
+                                          controller: e.controller,
+                                          inputFormatters: e.inputFormatters,
+                                          onTap: e.onTap,
+                                        );
+                                      }),
+                            )
+                            .toList()),
+                  ),
+                  BlocConsumer<AuthenticationBloc, AuthenticationState>(
+                    listener: _authenticationBlocListener,
+                    builder: (context, state) {
+                      return CustomButton(
+                        isLoading: state is AuthenticationLoading,
+                        onPressed: () => signup(context),
+                        child: Text(
+                          "Sign up",
+                          style: context.textTheme.labelMedium,
                         ),
-                      ),
-                    )
-                  ],
-                )
-              ],
+                      );
+                    },
+                  ),
+                  Spacing.vertical(40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Already have an account?",
+                          style: context.textTheme.bodyMedium),
+                      CustomTextButton(
+                        onPressed: () {
+                          Navigation.intentWithoutBack(
+                              context, LoginScreen.routeName);
+                        },
+                        child: Text(
+                          "Login Now",
+                          style: context.textTheme.bodyMedium?.copyWith(
+                            color: context.theme.primaryColor,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -264,21 +241,21 @@ class _SignupScreenState extends State<SignupScreen> {
   void _rebuildFields() {
     fields.clear();
     fields.addAll([
-      SignupTextFields(
+      TextFieldParams(
         label: "Username",
         validator: Validators.username(),
         keyboardType: TextInputType.name,
         textInputAction: TextInputAction.next,
         controller: textControllers[TextFields.userName],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "Email",
         validator: Validators.email(),
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         controller: textControllers[TextFields.email],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "Password",
         validator: Validators.password(),
         keyboardType: TextInputType.visiblePassword,
@@ -286,21 +263,21 @@ class _SignupScreenState extends State<SignupScreen> {
         obscureText: true,
         controller: textControllers[TextFields.password],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "First Name",
         validator: Validators.name(),
         keyboardType: TextInputType.name,
         textInputAction: TextInputAction.next,
         controller: textControllers[TextFields.firstName],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "Last Name",
         validator: Validators.name(),
         keyboardType: TextInputType.name,
         textInputAction: TextInputAction.next,
         controller: textControllers[TextFields.lastName],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "Country",
         validator: Validators.name(),
         keyboardType: TextInputType.name,
@@ -329,7 +306,7 @@ class _SignupScreenState extends State<SignupScreen> {
           );
         },
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "Phone",
         validator: Validators.phone(),
         keyboardType: TextInputType.phone,
@@ -351,7 +328,7 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
         ],
       ),
-      SignupTextFields(
+      TextFieldParams(
         label: "City",
         validator: Validators.name(),
         keyboardType: TextInputType.name,

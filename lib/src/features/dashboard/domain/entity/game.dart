@@ -3,7 +3,7 @@ class Game {
   final String publisher;
   final String title;
   final String summary;
-  final DateTime releaseDate;
+  final int releaseDate;
   final String id;
   final String image;
   final Rating rating;
@@ -18,14 +18,32 @@ class Game {
     required this.image,
     required this.rating,
   });
+
+  Game updateRating(int rating) {
+    return Game(
+      developer: developer,
+      publisher: publisher,
+      title: title,
+      summary: summary,
+      releaseDate: releaseDate,
+      id: id,
+      image: image,
+      rating: Rating(
+        count: this.rating.count + 1,
+        sum: this.rating.sum + rating,
+      ),
+    );
+  }
 }
 
 class Rating {
-  final int total;
-  final double average;
+  final int count;
+  final int sum;
 
   const Rating({
-    required this.total,
-    required this.average,
+    required this.count,
+    required this.sum,
   });
+
+  double get average => sum / count;
 }

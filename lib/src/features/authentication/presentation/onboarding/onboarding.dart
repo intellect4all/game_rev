@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:game_rev/src/core/constants/extensions/context/context.dart';
+import 'package:game_rev/src/core/widgets/screen_adjuster.dart';
 
 import '../../../../core/config/navigation/navigation.dart';
 import '../../../../core/constants/app_images.dart';
@@ -13,6 +15,7 @@ import 'bloc/onboarding_events.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
+
   static const String routeName = '/onboarding-screen';
 
   @override
@@ -83,20 +86,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: PageView(
-            onPageChanged: changePage,
-            physics: const BouncingScrollPhysics(),
-            controller: controller,
-            children: onboardingSteps
-                .map(
-                  (e) => OnboardingPage(
-                    params: e,
-                    onNext: _onNext,
-                  ),
-                )
-                .toList(),
+        child: ScreenAdjuster(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: PageView(
+              onPageChanged: changePage,
+              physics: const BouncingScrollPhysics(),
+              controller: controller,
+              children: onboardingSteps
+                  .map(
+                    (e) => OnboardingPage(
+                      params: e,
+                      onNext: _onNext,
+                    ),
+                  )
+                  .toList(),
+            ),
           ),
         ),
       ),
@@ -154,13 +159,15 @@ class OnboardingPage extends StatelessWidget {
           const Spacer(),
           SizedBox(
             height: MediaQuery.of(context).size.height * 233 / 812,
-            child: params.iconFormat == IconFormat.svg? SvgPicture.asset(
-              params.icon,
-              fit: BoxFit.contain,
-            ) : Image.asset(
-              params.icon,
-              fit: BoxFit.contain,
-            ),
+            child: params.iconFormat == IconFormat.svg
+                ? SvgPicture.asset(
+                    params.icon,
+                    fit: BoxFit.contain,
+                  )
+                : Image.asset(
+                    params.icon,
+                    fit: BoxFit.contain,
+                  ),
           ),
           const Spacer(),
           Padding(

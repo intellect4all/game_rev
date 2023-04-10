@@ -255,6 +255,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
         .map(
           (e) => ReviewCard(
             reviewData: e,
+            key: Key(e.review.id.toString()),
           ),
         )
         .toList();
