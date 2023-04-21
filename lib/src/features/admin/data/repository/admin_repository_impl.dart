@@ -6,7 +6,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:game_rev/src/core/error/failures/failure.dart';
 import 'package:game_rev/src/core/network/network.dart';
 import 'package:game_rev/src/core/usecases/success_entity.dart';
+import 'package:game_rev/src/core/utils/enums.dart';
 import 'package:game_rev/src/core/utils/handle_failure_check.dart';
+import 'package:game_rev/src/features/admin/domain/entities/review_location.dart';
 import 'package:game_rev/src/features/admin/domain/repository/repository.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/genre.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/paginated_response.dart';
@@ -110,6 +112,17 @@ class AdminRepositoryImpl implements AdminRepository, HandleFailureCheck {
       {required String reviewId}) async {
     return handleFailureCheck(() async {
       return await _remoteDataSource.unflagReview(reviewId: reviewId);
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<ReviewLocation>>> getReviewLocations({
+    required String duration,
+    required int value,
+  }) async {
+    return handleFailureCheck(() async {
+      return await _remoteDataSource.getReviewLocations(
+          duration: duration, value: value);
     });
   }
 }

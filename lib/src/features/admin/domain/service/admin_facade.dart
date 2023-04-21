@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:game_rev/src/core/error/failures/failure.dart';
 import 'package:game_rev/src/core/usecases/success_entity.dart';
+import 'package:game_rev/src/core/utils/enums.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/genre.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/paginated_response.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/review.dart';
 
+import '../entities/review_location.dart';
 import '../repository/repository.dart';
 
 class AdminServiceFacade {
@@ -24,13 +26,13 @@ class AdminServiceFacade {
   Future<Either<Failure, Success>> addGame(AddGameParams params) async {
     // push image
     final Either<Failure, String> imageResult =
-    await _adminRepository.pushImage(
+        await _adminRepository.pushImage(
       image: params.image,
     );
 
     return imageResult.fold(
-          (failure) => Left(failure),
-          (imageUrl) async {
+      (failure) => Left(failure),
+      (imageUrl) async {
         final fields = <String, String>{
           ...params.fields,
           'image': imageUrl,
@@ -55,6 +57,16 @@ class AdminServiceFacade {
 
   Future<Either<Failure, Success>> unflagReview(String reviewId) async {
     return _adminRepository.unflagReview(reviewId: reviewId);
+  }
+
+  Future<Either<Failure, List<ReviewLocation>>> getReviewLocations({
+    required String duration,
+    required int value,
+  }) async {
+    return await _adminRepository.getReviewLocations(
+      duration: duration,
+      value: value,
+    );
   }
 }
 

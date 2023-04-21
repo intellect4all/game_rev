@@ -27,6 +27,8 @@ mixin _$AdminEvent {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +42,8 @@ mixin _$AdminEvent {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +57,8 @@ mixin _$AdminEvent {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,6 +72,8 @@ mixin _$AdminEvent {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +86,7 @@ mixin _$AdminEvent {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +99,7 @@ mixin _$AdminEvent {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +169,8 @@ class _$_Started implements _Started {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return started();
   }
@@ -175,6 +187,8 @@ class _$_Started implements _Started {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return started?.call();
   }
@@ -191,6 +205,8 @@ class _$_Started implements _Started {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -210,6 +226,8 @@ class _$_Started implements _Started {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return started(this);
   }
@@ -225,6 +243,7 @@ class _$_Started implements _Started {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return started?.call(this);
   }
@@ -240,6 +259,7 @@ class _$_Started implements _Started {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -334,6 +354,8 @@ class _$_FetchGenres implements _FetchGenres {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return fetchGenres(limit, offset);
   }
@@ -350,6 +372,8 @@ class _$_FetchGenres implements _FetchGenres {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return fetchGenres?.call(limit, offset);
   }
@@ -366,6 +390,8 @@ class _$_FetchGenres implements _FetchGenres {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (fetchGenres != null) {
@@ -385,6 +411,8 @@ class _$_FetchGenres implements _FetchGenres {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return fetchGenres(this);
   }
@@ -400,6 +428,7 @@ class _$_FetchGenres implements _FetchGenres {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return fetchGenres?.call(this);
   }
@@ -415,6 +444,7 @@ class _$_FetchGenres implements _FetchGenres {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (fetchGenres != null) {
@@ -544,6 +574,8 @@ class _$_AddGame implements _AddGame {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return addGame(fields, genres, image);
   }
@@ -560,6 +592,8 @@ class _$_AddGame implements _AddGame {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return addGame?.call(fields, genres, image);
   }
@@ -576,6 +610,8 @@ class _$_AddGame implements _AddGame {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (addGame != null) {
@@ -595,6 +631,8 @@ class _$_AddGame implements _AddGame {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return addGame(this);
   }
@@ -610,6 +648,7 @@ class _$_AddGame implements _AddGame {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return addGame?.call(this);
   }
@@ -625,6 +664,7 @@ class _$_AddGame implements _AddGame {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (addGame != null) {
@@ -730,6 +770,8 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return getFlaggedReviews(limit, offset);
   }
@@ -746,6 +788,8 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return getFlaggedReviews?.call(limit, offset);
   }
@@ -762,6 +806,8 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (getFlaggedReviews != null) {
@@ -781,6 +827,8 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return getFlaggedReviews(this);
   }
@@ -796,6 +844,7 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return getFlaggedReviews?.call(this);
   }
@@ -811,6 +860,7 @@ class _$_GetFlaggedReviews implements _GetFlaggedReviews {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (getFlaggedReviews != null) {
@@ -906,6 +956,8 @@ class _$_DeleteReview implements _DeleteReview {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return deleteReview(reviewId);
   }
@@ -922,6 +974,8 @@ class _$_DeleteReview implements _DeleteReview {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return deleteReview?.call(reviewId);
   }
@@ -938,6 +992,8 @@ class _$_DeleteReview implements _DeleteReview {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (deleteReview != null) {
@@ -957,6 +1013,8 @@ class _$_DeleteReview implements _DeleteReview {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return deleteReview(this);
   }
@@ -972,6 +1030,7 @@ class _$_DeleteReview implements _DeleteReview {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return deleteReview?.call(this);
   }
@@ -987,6 +1046,7 @@ class _$_DeleteReview implements _DeleteReview {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (deleteReview != null) {
@@ -1056,6 +1116,8 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return getAllRecentUnreviewedGames();
   }
@@ -1072,6 +1134,8 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return getAllRecentUnreviewedGames?.call();
   }
@@ -1088,6 +1152,8 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (getAllRecentUnreviewedGames != null) {
@@ -1107,6 +1173,8 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return getAllRecentUnreviewedGames(this);
   }
@@ -1122,6 +1190,7 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return getAllRecentUnreviewedGames?.call(this);
   }
@@ -1137,6 +1206,7 @@ class _$_GetAllRecentUnreviewedGames implements _GetAllRecentUnreviewedGames {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (getAllRecentUnreviewedGames != null) {
@@ -1224,6 +1294,8 @@ class _$_UnflagReview implements _UnflagReview {
     required TResult Function(String reviewId) deleteReview,
     required TResult Function() getAllRecentUnreviewedGames,
     required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
   }) {
     return unFlagReview(reviewId);
   }
@@ -1240,6 +1312,8 @@ class _$_UnflagReview implements _UnflagReview {
     TResult? Function(String reviewId)? deleteReview,
     TResult? Function()? getAllRecentUnreviewedGames,
     TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
   }) {
     return unFlagReview?.call(reviewId);
   }
@@ -1256,6 +1330,8 @@ class _$_UnflagReview implements _UnflagReview {
     TResult Function(String reviewId)? deleteReview,
     TResult Function()? getAllRecentUnreviewedGames,
     TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
     required TResult orElse(),
   }) {
     if (unFlagReview != null) {
@@ -1275,6 +1351,8 @@ class _$_UnflagReview implements _UnflagReview {
     required TResult Function(_GetAllRecentUnreviewedGames value)
         getAllRecentUnreviewedGames,
     required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
   }) {
     return unFlagReview(this);
   }
@@ -1290,6 +1368,7 @@ class _$_UnflagReview implements _UnflagReview {
     TResult? Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
   }) {
     return unFlagReview?.call(this);
   }
@@ -1305,6 +1384,7 @@ class _$_UnflagReview implements _UnflagReview {
     TResult Function(_GetAllRecentUnreviewedGames value)?
         getAllRecentUnreviewedGames,
     TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
     required TResult orElse(),
   }) {
     if (unFlagReview != null) {
@@ -1325,6 +1405,203 @@ abstract class _UnflagReview implements AdminEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetReviewLocationsEventCopyWith<$Res> {
+  factory _$$_GetReviewLocationsEventCopyWith(_$_GetReviewLocationsEvent value,
+          $Res Function(_$_GetReviewLocationsEvent) then) =
+      __$$_GetReviewLocationsEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ReviewLocationDuration duration, int value});
+}
+
+/// @nodoc
+class __$$_GetReviewLocationsEventCopyWithImpl<$Res>
+    extends _$AdminEventCopyWithImpl<$Res, _$_GetReviewLocationsEvent>
+    implements _$$_GetReviewLocationsEventCopyWith<$Res> {
+  __$$_GetReviewLocationsEventCopyWithImpl(_$_GetReviewLocationsEvent _value,
+      $Res Function(_$_GetReviewLocationsEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? duration = null,
+    Object? value = null,
+  }) {
+    return _then(_$_GetReviewLocationsEvent(
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as ReviewLocationDuration,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetReviewLocationsEvent implements _GetReviewLocationsEvent {
+  const _$_GetReviewLocationsEvent(
+      {required this.duration, required this.value});
+
+  @override
+  final ReviewLocationDuration duration;
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'AdminEvent.getReviewLocations(duration: $duration, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetReviewLocationsEvent &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, duration, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetReviewLocationsEventCopyWith<_$_GetReviewLocationsEvent>
+      get copyWith =>
+          __$$_GetReviewLocationsEventCopyWithImpl<_$_GetReviewLocationsEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int limit, int offset) fetchGenres,
+    required TResult Function(
+            Map<String, String> fields, List<Genre> genres, XFile image)
+        addGame,
+    required TResult Function(int limit, int offset) getFlaggedReviews,
+    required TResult Function(String reviewId) deleteReview,
+    required TResult Function() getAllRecentUnreviewedGames,
+    required TResult Function(String reviewId) unFlagReview,
+    required TResult Function(ReviewLocationDuration duration, int value)
+        getReviewLocations,
+  }) {
+    return getReviewLocations(duration, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int limit, int offset)? fetchGenres,
+    TResult? Function(
+            Map<String, String> fields, List<Genre> genres, XFile image)?
+        addGame,
+    TResult? Function(int limit, int offset)? getFlaggedReviews,
+    TResult? Function(String reviewId)? deleteReview,
+    TResult? Function()? getAllRecentUnreviewedGames,
+    TResult? Function(String reviewId)? unFlagReview,
+    TResult? Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
+  }) {
+    return getReviewLocations?.call(duration, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int limit, int offset)? fetchGenres,
+    TResult Function(
+            Map<String, String> fields, List<Genre> genres, XFile image)?
+        addGame,
+    TResult Function(int limit, int offset)? getFlaggedReviews,
+    TResult Function(String reviewId)? deleteReview,
+    TResult Function()? getAllRecentUnreviewedGames,
+    TResult Function(String reviewId)? unFlagReview,
+    TResult Function(ReviewLocationDuration duration, int value)?
+        getReviewLocations,
+    required TResult orElse(),
+  }) {
+    if (getReviewLocations != null) {
+      return getReviewLocations(duration, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_FetchGenres value) fetchGenres,
+    required TResult Function(_AddGame value) addGame,
+    required TResult Function(_GetFlaggedReviews value) getFlaggedReviews,
+    required TResult Function(_DeleteReview value) deleteReview,
+    required TResult Function(_GetAllRecentUnreviewedGames value)
+        getAllRecentUnreviewedGames,
+    required TResult Function(_UnflagReview value) unFlagReview,
+    required TResult Function(_GetReviewLocationsEvent value)
+        getReviewLocations,
+  }) {
+    return getReviewLocations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_FetchGenres value)? fetchGenres,
+    TResult? Function(_AddGame value)? addGame,
+    TResult? Function(_GetFlaggedReviews value)? getFlaggedReviews,
+    TResult? Function(_DeleteReview value)? deleteReview,
+    TResult? Function(_GetAllRecentUnreviewedGames value)?
+        getAllRecentUnreviewedGames,
+    TResult? Function(_UnflagReview value)? unFlagReview,
+    TResult? Function(_GetReviewLocationsEvent value)? getReviewLocations,
+  }) {
+    return getReviewLocations?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_FetchGenres value)? fetchGenres,
+    TResult Function(_AddGame value)? addGame,
+    TResult Function(_GetFlaggedReviews value)? getFlaggedReviews,
+    TResult Function(_DeleteReview value)? deleteReview,
+    TResult Function(_GetAllRecentUnreviewedGames value)?
+        getAllRecentUnreviewedGames,
+    TResult Function(_UnflagReview value)? unFlagReview,
+    TResult Function(_GetReviewLocationsEvent value)? getReviewLocations,
+    required TResult orElse(),
+  }) {
+    if (getReviewLocations != null) {
+      return getReviewLocations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetReviewLocationsEvent implements AdminEvent {
+  const factory _GetReviewLocationsEvent(
+      {required final ReviewLocationDuration duration,
+      required final int value}) = _$_GetReviewLocationsEvent;
+
+  ReviewLocationDuration get duration;
+  int get value;
+  @JsonKey(ignore: true)
+  _$$_GetReviewLocationsEventCopyWith<_$_GetReviewLocationsEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AdminState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -1340,6 +1617,10 @@ mixin _$AdminState {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1354,6 +1635,9 @@ mixin _$AdminState {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1368,6 +1652,9 @@ mixin _$AdminState {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1386,6 +1673,12 @@ mixin _$AdminState {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1401,6 +1694,11 @@ mixin _$AdminState {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1416,6 +1714,11 @@ mixin _$AdminState {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1488,6 +1791,10 @@ class _$_Initial implements _Initial {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return initial();
   }
@@ -1505,6 +1812,9 @@ class _$_Initial implements _Initial {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return initial?.call();
   }
@@ -1522,6 +1832,9 @@ class _$_Initial implements _Initial {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1546,6 +1859,12 @@ class _$_Initial implements _Initial {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return initial(this);
   }
@@ -1564,6 +1883,11 @@ class _$_Initial implements _Initial {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return initial?.call(this);
   }
@@ -1582,6 +1906,11 @@ class _$_Initial implements _Initial {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1645,6 +1974,10 @@ class _$_FetchingGenres implements _FetchingGenres {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return fetchingGenres();
   }
@@ -1662,6 +1995,9 @@ class _$_FetchingGenres implements _FetchingGenres {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return fetchingGenres?.call();
   }
@@ -1679,6 +2015,9 @@ class _$_FetchingGenres implements _FetchingGenres {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingGenres != null) {
@@ -1703,6 +2042,12 @@ class _$_FetchingGenres implements _FetchingGenres {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingGenres(this);
   }
@@ -1721,6 +2066,11 @@ class _$_FetchingGenres implements _FetchingGenres {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingGenres?.call(this);
   }
@@ -1739,6 +2089,11 @@ class _$_FetchingGenres implements _FetchingGenres {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingGenres != null) {
@@ -1829,6 +2184,10 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return fetchingGenresSuccess(genres);
   }
@@ -1846,6 +2205,9 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return fetchingGenresSuccess?.call(genres);
   }
@@ -1863,6 +2225,9 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingGenresSuccess != null) {
@@ -1887,6 +2252,12 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingGenresSuccess(this);
   }
@@ -1905,6 +2276,11 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingGenresSuccess?.call(this);
   }
@@ -1923,6 +2299,11 @@ class _$_FetchingGenresSuccess implements _FetchingGenresSuccess {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingGenresSuccess != null) {
@@ -2017,6 +2398,10 @@ class _$_Failure implements _Failure {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return failure(message);
   }
@@ -2034,6 +2419,9 @@ class _$_Failure implements _Failure {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return failure?.call(message);
   }
@@ -2051,6 +2439,9 @@ class _$_Failure implements _Failure {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -2075,6 +2466,12 @@ class _$_Failure implements _Failure {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return failure(this);
   }
@@ -2093,6 +2490,11 @@ class _$_Failure implements _Failure {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return failure?.call(this);
   }
@@ -2111,6 +2513,11 @@ class _$_Failure implements _Failure {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -2179,6 +2586,10 @@ class _$_AddingGame implements _AddingGame {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return addingGame();
   }
@@ -2196,6 +2607,9 @@ class _$_AddingGame implements _AddingGame {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return addingGame?.call();
   }
@@ -2213,6 +2627,9 @@ class _$_AddingGame implements _AddingGame {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (addingGame != null) {
@@ -2237,6 +2654,12 @@ class _$_AddingGame implements _AddingGame {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return addingGame(this);
   }
@@ -2255,6 +2678,11 @@ class _$_AddingGame implements _AddingGame {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return addingGame?.call(this);
   }
@@ -2273,6 +2701,11 @@ class _$_AddingGame implements _AddingGame {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (addingGame != null) {
@@ -2336,6 +2769,10 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return addingGameSuccess();
   }
@@ -2353,6 +2790,9 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return addingGameSuccess?.call();
   }
@@ -2370,6 +2810,9 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (addingGameSuccess != null) {
@@ -2394,6 +2837,12 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return addingGameSuccess(this);
   }
@@ -2412,6 +2861,11 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return addingGameSuccess?.call(this);
   }
@@ -2430,6 +2884,11 @@ class _$_AddingGameSuccess implements _AddingGameSuccess {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (addingGameSuccess != null) {
@@ -2494,6 +2953,10 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return fetchingFlaggedReviews();
   }
@@ -2511,6 +2974,9 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return fetchingFlaggedReviews?.call();
   }
@@ -2528,6 +2994,9 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingFlaggedReviews != null) {
@@ -2552,6 +3021,12 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingFlaggedReviews(this);
   }
@@ -2570,6 +3045,11 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return fetchingFlaggedReviews?.call(this);
   }
@@ -2588,6 +3068,11 @@ class _$_FetchingFlaggedReviews implements _FetchingFlaggedReviews {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (fetchingFlaggedReviews != null) {
@@ -2681,6 +3166,10 @@ class _$_FetchingFlaggedReviewsSuccess
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return flaggedReviewsFetched(reviews);
   }
@@ -2698,6 +3187,9 @@ class _$_FetchingFlaggedReviewsSuccess
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return flaggedReviewsFetched?.call(reviews);
   }
@@ -2715,6 +3207,9 @@ class _$_FetchingFlaggedReviewsSuccess
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (flaggedReviewsFetched != null) {
@@ -2739,6 +3234,12 @@ class _$_FetchingFlaggedReviewsSuccess
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return flaggedReviewsFetched(this);
   }
@@ -2757,6 +3258,11 @@ class _$_FetchingFlaggedReviewsSuccess
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return flaggedReviewsFetched?.call(this);
   }
@@ -2775,6 +3281,11 @@ class _$_FetchingFlaggedReviewsSuccess
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (flaggedReviewsFetched != null) {
@@ -2872,6 +3383,10 @@ class _$_ReviewDeleted implements _ReviewDeleted {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return reviewDeleted(reviewId);
   }
@@ -2889,6 +3404,9 @@ class _$_ReviewDeleted implements _ReviewDeleted {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return reviewDeleted?.call(reviewId);
   }
@@ -2906,6 +3424,9 @@ class _$_ReviewDeleted implements _ReviewDeleted {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (reviewDeleted != null) {
@@ -2930,6 +3451,12 @@ class _$_ReviewDeleted implements _ReviewDeleted {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return reviewDeleted(this);
   }
@@ -2948,6 +3475,11 @@ class _$_ReviewDeleted implements _ReviewDeleted {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return reviewDeleted?.call(this);
   }
@@ -2966,6 +3498,11 @@ class _$_ReviewDeleted implements _ReviewDeleted {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (reviewDeleted != null) {
@@ -3061,6 +3598,10 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
         flaggedReviewsFetched,
     required TResult Function(String reviewId) reviewDeleted,
     required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
   }) {
     return reviewUnflagged(reviewId);
   }
@@ -3078,6 +3619,9 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
     TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult? Function(String reviewId)? reviewDeleted,
     TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
   }) {
     return reviewUnflagged?.call(reviewId);
   }
@@ -3095,6 +3639,9 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
     TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
     TResult Function(String reviewId)? reviewDeleted,
     TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (reviewUnflagged != null) {
@@ -3119,6 +3666,12 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
         flaggedReviewsFetched,
     required TResult Function(_ReviewDeleted value) reviewDeleted,
     required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
   }) {
     return reviewUnflagged(this);
   }
@@ -3137,6 +3690,11 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
         flaggedReviewsFetched,
     TResult? Function(_ReviewDeleted value)? reviewDeleted,
     TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
   }) {
     return reviewUnflagged?.call(this);
   }
@@ -3155,6 +3713,11 @@ class _$_ReviewUnflagged implements _ReviewUnflagged {
         flaggedReviewsFetched,
     TResult Function(_ReviewDeleted value)? reviewDeleted,
     TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
     required TResult orElse(),
   }) {
     if (reviewUnflagged != null) {
@@ -3171,4 +3734,633 @@ abstract class _ReviewUnflagged implements AdminState {
   @JsonKey(ignore: true)
   _$$_ReviewUnflaggedCopyWith<_$_ReviewUnflagged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchingReviewLocationsCopyWith<$Res> {
+  factory _$$_FetchingReviewLocationsCopyWith(_$_FetchingReviewLocations value,
+          $Res Function(_$_FetchingReviewLocations) then) =
+      __$$_FetchingReviewLocationsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchingReviewLocationsCopyWithImpl<$Res>
+    extends _$AdminStateCopyWithImpl<$Res, _$_FetchingReviewLocations>
+    implements _$$_FetchingReviewLocationsCopyWith<$Res> {
+  __$$_FetchingReviewLocationsCopyWithImpl(_$_FetchingReviewLocations _value,
+      $Res Function(_$_FetchingReviewLocations) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FetchingReviewLocations implements _FetchingReviewLocations {
+  const _$_FetchingReviewLocations();
+
+  @override
+  String toString() {
+    return 'AdminState.fetchingReviewLocations()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchingReviewLocations);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingGenres,
+    required TResult Function(PaginatedResponse<Genre> genres)
+        fetchingGenresSuccess,
+    required TResult Function(String message) failure,
+    required TResult Function() addingGame,
+    required TResult Function() addingGameSuccess,
+    required TResult Function() fetchingFlaggedReviews,
+    required TResult Function(PaginatedResponse<Review> reviews)
+        flaggedReviewsFetched,
+    required TResult Function(String reviewId) reviewDeleted,
+    required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocations();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchingGenres,
+    TResult? Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult? Function(String message)? failure,
+    TResult? Function()? addingGame,
+    TResult? Function()? addingGameSuccess,
+    TResult? Function()? fetchingFlaggedReviews,
+    TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult? Function(String reviewId)? reviewDeleted,
+    TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocations?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingGenres,
+    TResult Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult Function(String message)? failure,
+    TResult Function()? addingGame,
+    TResult Function()? addingGameSuccess,
+    TResult Function()? fetchingFlaggedReviews,
+    TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult Function(String reviewId)? reviewDeleted,
+    TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (fetchingReviewLocations != null) {
+      return fetchingReviewLocations();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingGenres value) fetchingGenres,
+    required TResult Function(_FetchingGenresSuccess value)
+        fetchingGenresSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_AddingGame value) addingGame,
+    required TResult Function(_AddingGameSuccess value) addingGameSuccess,
+    required TResult Function(_FetchingFlaggedReviews value)
+        fetchingFlaggedReviews,
+    required TResult Function(_FetchingFlaggedReviewsSuccess value)
+        flaggedReviewsFetched,
+    required TResult Function(_ReviewDeleted value) reviewDeleted,
+    required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchingGenres value)? fetchingGenres,
+    TResult? Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_AddingGame value)? addingGame,
+    TResult? Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult? Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult? Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult? Function(_ReviewDeleted value)? reviewDeleted,
+    TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocations?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingGenres value)? fetchingGenres,
+    TResult Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_AddingGame value)? addingGame,
+    TResult Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult Function(_ReviewDeleted value)? reviewDeleted,
+    TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (fetchingReviewLocations != null) {
+      return fetchingReviewLocations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchingReviewLocations implements AdminState {
+  const factory _FetchingReviewLocations() = _$_FetchingReviewLocations;
+}
+
+/// @nodoc
+abstract class _$$_FetchingReviewLocationsSuccessCopyWith<$Res> {
+  factory _$$_FetchingReviewLocationsSuccessCopyWith(
+          _$_FetchingReviewLocationsSuccess value,
+          $Res Function(_$_FetchingReviewLocationsSuccess) then) =
+      __$$_FetchingReviewLocationsSuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<ReviewLocation> success});
+}
+
+/// @nodoc
+class __$$_FetchingReviewLocationsSuccessCopyWithImpl<$Res>
+    extends _$AdminStateCopyWithImpl<$Res, _$_FetchingReviewLocationsSuccess>
+    implements _$$_FetchingReviewLocationsSuccessCopyWith<$Res> {
+  __$$_FetchingReviewLocationsSuccessCopyWithImpl(
+      _$_FetchingReviewLocationsSuccess _value,
+      $Res Function(_$_FetchingReviewLocationsSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? success = null,
+  }) {
+    return _then(_$_FetchingReviewLocationsSuccess(
+      null == success
+          ? _value._success
+          : success // ignore: cast_nullable_to_non_nullable
+              as List<ReviewLocation>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchingReviewLocationsSuccess
+    implements _FetchingReviewLocationsSuccess {
+  const _$_FetchingReviewLocationsSuccess(final List<ReviewLocation> success)
+      : _success = success;
+
+  final List<ReviewLocation> _success;
+  @override
+  List<ReviewLocation> get success {
+    if (_success is EqualUnmodifiableListView) return _success;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_success);
+  }
+
+  @override
+  String toString() {
+    return 'AdminState.reviewLocationsFetched(success: $success)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchingReviewLocationsSuccess &&
+            const DeepCollectionEquality().equals(other._success, _success));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_success));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchingReviewLocationsSuccessCopyWith<_$_FetchingReviewLocationsSuccess>
+      get copyWith => __$$_FetchingReviewLocationsSuccessCopyWithImpl<
+          _$_FetchingReviewLocationsSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingGenres,
+    required TResult Function(PaginatedResponse<Genre> genres)
+        fetchingGenresSuccess,
+    required TResult Function(String message) failure,
+    required TResult Function() addingGame,
+    required TResult Function() addingGameSuccess,
+    required TResult Function() fetchingFlaggedReviews,
+    required TResult Function(PaginatedResponse<Review> reviews)
+        flaggedReviewsFetched,
+    required TResult Function(String reviewId) reviewDeleted,
+    required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
+  }) {
+    return reviewLocationsFetched(success);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchingGenres,
+    TResult? Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult? Function(String message)? failure,
+    TResult? Function()? addingGame,
+    TResult? Function()? addingGameSuccess,
+    TResult? Function()? fetchingFlaggedReviews,
+    TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult? Function(String reviewId)? reviewDeleted,
+    TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
+  }) {
+    return reviewLocationsFetched?.call(success);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingGenres,
+    TResult Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult Function(String message)? failure,
+    TResult Function()? addingGame,
+    TResult Function()? addingGameSuccess,
+    TResult Function()? fetchingFlaggedReviews,
+    TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult Function(String reviewId)? reviewDeleted,
+    TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (reviewLocationsFetched != null) {
+      return reviewLocationsFetched(success);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingGenres value) fetchingGenres,
+    required TResult Function(_FetchingGenresSuccess value)
+        fetchingGenresSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_AddingGame value) addingGame,
+    required TResult Function(_AddingGameSuccess value) addingGameSuccess,
+    required TResult Function(_FetchingFlaggedReviews value)
+        fetchingFlaggedReviews,
+    required TResult Function(_FetchingFlaggedReviewsSuccess value)
+        flaggedReviewsFetched,
+    required TResult Function(_ReviewDeleted value) reviewDeleted,
+    required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
+  }) {
+    return reviewLocationsFetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchingGenres value)? fetchingGenres,
+    TResult? Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_AddingGame value)? addingGame,
+    TResult? Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult? Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult? Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult? Function(_ReviewDeleted value)? reviewDeleted,
+    TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+  }) {
+    return reviewLocationsFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingGenres value)? fetchingGenres,
+    TResult Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_AddingGame value)? addingGame,
+    TResult Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult Function(_ReviewDeleted value)? reviewDeleted,
+    TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (reviewLocationsFetched != null) {
+      return reviewLocationsFetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchingReviewLocationsSuccess implements AdminState {
+  const factory _FetchingReviewLocationsSuccess(
+      final List<ReviewLocation> success) = _$_FetchingReviewLocationsSuccess;
+
+  List<ReviewLocation> get success;
+  @JsonKey(ignore: true)
+  _$$_FetchingReviewLocationsSuccessCopyWith<_$_FetchingReviewLocationsSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchingReviewLocationsFailureCopyWith<$Res> {
+  factory _$$_FetchingReviewLocationsFailureCopyWith(
+          _$_FetchingReviewLocationsFailure value,
+          $Res Function(_$_FetchingReviewLocationsFailure) then) =
+      __$$_FetchingReviewLocationsFailureCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_FetchingReviewLocationsFailureCopyWithImpl<$Res>
+    extends _$AdminStateCopyWithImpl<$Res, _$_FetchingReviewLocationsFailure>
+    implements _$$_FetchingReviewLocationsFailureCopyWith<$Res> {
+  __$$_FetchingReviewLocationsFailureCopyWithImpl(
+      _$_FetchingReviewLocationsFailure _value,
+      $Res Function(_$_FetchingReviewLocationsFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_FetchingReviewLocationsFailure(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchingReviewLocationsFailure
+    implements _FetchingReviewLocationsFailure {
+  const _$_FetchingReviewLocationsFailure(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AdminState.fetchingReviewLocationsFailure(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchingReviewLocationsFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchingReviewLocationsFailureCopyWith<_$_FetchingReviewLocationsFailure>
+      get copyWith => __$$_FetchingReviewLocationsFailureCopyWithImpl<
+          _$_FetchingReviewLocationsFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() fetchingGenres,
+    required TResult Function(PaginatedResponse<Genre> genres)
+        fetchingGenresSuccess,
+    required TResult Function(String message) failure,
+    required TResult Function() addingGame,
+    required TResult Function() addingGameSuccess,
+    required TResult Function() fetchingFlaggedReviews,
+    required TResult Function(PaginatedResponse<Review> reviews)
+        flaggedReviewsFetched,
+    required TResult Function(String reviewId) reviewDeleted,
+    required TResult Function(String reviewId) reviewUnflagged,
+    required TResult Function() fetchingReviewLocations,
+    required TResult Function(List<ReviewLocation> success)
+        reviewLocationsFetched,
+    required TResult Function(String message) fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocationsFailure(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? fetchingGenres,
+    TResult? Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult? Function(String message)? failure,
+    TResult? Function()? addingGame,
+    TResult? Function()? addingGameSuccess,
+    TResult? Function()? fetchingFlaggedReviews,
+    TResult? Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult? Function(String reviewId)? reviewDeleted,
+    TResult? Function(String reviewId)? reviewUnflagged,
+    TResult? Function()? fetchingReviewLocations,
+    TResult? Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult? Function(String message)? fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocationsFailure?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? fetchingGenres,
+    TResult Function(PaginatedResponse<Genre> genres)? fetchingGenresSuccess,
+    TResult Function(String message)? failure,
+    TResult Function()? addingGame,
+    TResult Function()? addingGameSuccess,
+    TResult Function()? fetchingFlaggedReviews,
+    TResult Function(PaginatedResponse<Review> reviews)? flaggedReviewsFetched,
+    TResult Function(String reviewId)? reviewDeleted,
+    TResult Function(String reviewId)? reviewUnflagged,
+    TResult Function()? fetchingReviewLocations,
+    TResult Function(List<ReviewLocation> success)? reviewLocationsFetched,
+    TResult Function(String message)? fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (fetchingReviewLocationsFailure != null) {
+      return fetchingReviewLocationsFailure(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchingGenres value) fetchingGenres,
+    required TResult Function(_FetchingGenresSuccess value)
+        fetchingGenresSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_AddingGame value) addingGame,
+    required TResult Function(_AddingGameSuccess value) addingGameSuccess,
+    required TResult Function(_FetchingFlaggedReviews value)
+        fetchingFlaggedReviews,
+    required TResult Function(_FetchingFlaggedReviewsSuccess value)
+        flaggedReviewsFetched,
+    required TResult Function(_ReviewDeleted value) reviewDeleted,
+    required TResult Function(_ReviewUnflagged value) reviewUnflagged,
+    required TResult Function(_FetchingReviewLocations value)
+        fetchingReviewLocations,
+    required TResult Function(_FetchingReviewLocationsSuccess value)
+        reviewLocationsFetched,
+    required TResult Function(_FetchingReviewLocationsFailure value)
+        fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocationsFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchingGenres value)? fetchingGenres,
+    TResult? Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_AddingGame value)? addingGame,
+    TResult? Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult? Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult? Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult? Function(_ReviewDeleted value)? reviewDeleted,
+    TResult? Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult? Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult? Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult? Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+  }) {
+    return fetchingReviewLocationsFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchingGenres value)? fetchingGenres,
+    TResult Function(_FetchingGenresSuccess value)? fetchingGenresSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_AddingGame value)? addingGame,
+    TResult Function(_AddingGameSuccess value)? addingGameSuccess,
+    TResult Function(_FetchingFlaggedReviews value)? fetchingFlaggedReviews,
+    TResult Function(_FetchingFlaggedReviewsSuccess value)?
+        flaggedReviewsFetched,
+    TResult Function(_ReviewDeleted value)? reviewDeleted,
+    TResult Function(_ReviewUnflagged value)? reviewUnflagged,
+    TResult Function(_FetchingReviewLocations value)? fetchingReviewLocations,
+    TResult Function(_FetchingReviewLocationsSuccess value)?
+        reviewLocationsFetched,
+    TResult Function(_FetchingReviewLocationsFailure value)?
+        fetchingReviewLocationsFailure,
+    required TResult orElse(),
+  }) {
+    if (fetchingReviewLocationsFailure != null) {
+      return fetchingReviewLocationsFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchingReviewLocationsFailure implements AdminState {
+  const factory _FetchingReviewLocationsFailure(final String message) =
+      _$_FetchingReviewLocationsFailure;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_FetchingReviewLocationsFailureCopyWith<_$_FetchingReviewLocationsFailure>
+      get copyWith => throw _privateConstructorUsedError;
 }

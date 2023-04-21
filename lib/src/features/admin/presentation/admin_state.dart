@@ -23,4 +23,12 @@ class AdminState with _$AdminState {
   const factory AdminState.reviewDeleted(String reviewId) = _ReviewDeleted;
 
   const factory AdminState.reviewUnflagged(String reviewId) = _ReviewUnflagged;
+
+  const factory AdminState.fetchingReviewLocations() = _FetchingReviewLocations;
+
+  const factory AdminState.reviewLocationsFetched(
+      List<ReviewLocation> success) = _FetchingReviewLocationsSuccess;
+
+  const factory AdminState.fetchingReviewLocationsFailure(String message) =
+      _FetchingReviewLocationsFailure;
 }

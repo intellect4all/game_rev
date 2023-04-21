@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:game_rev/src/core/error/failures/exceptions.dart';
 import 'package:game_rev/src/core/usecases/success_entity.dart';
+import 'package:game_rev/src/core/utils/enums.dart';
+import 'package:game_rev/src/features/admin/domain/entities/review_location.dart';
 import 'package:game_rev/src/features/dashboard/data/models/game_model.dart';
 import 'package:game_rev/src/features/dashboard/data/models/review_model.dart';
 
@@ -9,6 +11,7 @@ import '../../../../core/network/api_caller.dart';
 import '../../../../core/network/endpoints.dart';
 import '../../../dashboard/data/models/genre_model.dart';
 import '../../../dashboard/data/models/paginated_response_model.dart';
+import '../models/review_location_model.dart';
 
 class AdminRemoteDataSource {
   final ApiCaller _apiCaller;
@@ -108,6 +111,26 @@ class AdminRemoteDataSource {
     );
     if (res.isSuccessful()) {
       return SuccessModel(message: res.message);
+    }
+    log(res.message);
+    throw CustomException(res.message);
+  }
+
+  Future<List<ReviewLocationModel>> getReviewLocations({
+    required String duration,
+    required int value,
+  }) async {
+    final query = {
+      'type': duration,
+      'value': value,
+    };
+    final res = await _apiCaller.get(
+      url: AppEndpoints.getReviewLocations,
+      params: query,
+    );
+    if (res.isSuccessful()) {
+      final List<dynamic> data = res.data as List<dynamic>;
+      return data.map((e) => ReviewLocationModel.fromJson(e)).toList();
     }
     log(res.message);
     throw CustomException(res.message);

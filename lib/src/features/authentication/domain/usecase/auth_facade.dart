@@ -95,4 +95,6 @@ class AuthFacade {
   Future<Either<Failure, Success>> signOut() {
     return _repository.signOut();
   }
+
+  getReviewLocations() {}
 }

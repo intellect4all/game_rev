@@ -25,4 +25,9 @@ class AdminEvent with _$AdminEvent {
 
   const factory AdminEvent.unFlagReview({required String reviewId}) =
       _UnflagReview;
+
+  const factory AdminEvent.getReviewLocations({
+    required ReviewLocationDuration duration,
+    required int value,
+  }) = _GetReviewLocationsEvent;
 }
