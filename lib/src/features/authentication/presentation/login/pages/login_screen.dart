@@ -66,7 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if (Navigator.of(context).canPop())
+                  const BackButton(color: Colors.white),
                 Padding(
                   padding:
                       const EdgeInsets.only(top: 61.0, left: 22, right: 22),
@@ -75,16 +78,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        //INTRODUCTORY MESSAGE
-
                         Text(
                           'Welcome back! Glad to see\nyou Again!',
                           style: context.textTheme.titleLarge,
                         ),
                         Spacing.vertical(32),
-
                         //EMAIL TEXTFIELD
-
                         CustomTextInput(
                           label: 'Email Address',
                           controller: emailController,
@@ -187,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 'Sign up',
                                 style: context.textTheme.bodyMedium?.copyWith(
-                                  color: context.theme.primaryColor,
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             )

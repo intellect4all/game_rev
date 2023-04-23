@@ -121,12 +121,24 @@ class _HomeScreenState extends State<HomeScreen> {
                             section == DashboardSections.games,
                       ),
                       builder: (context, state) {
+                        if (state.maybeWhen(
+                              orElse: () => false,
+                              loading: (section) =>
+                                  section == DashboardSections.games,
+                            ) &&
+                            _games.isEmpty) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+
                         return NotificationListener<ScrollNotification>(
                           onNotification: (notification) {
                             if (notification is ScrollEndNotification) {
                               final metrics = notification.metrics;
                               if (metrics.pixels == metrics.maxScrollExtent) {
                                 if (_gameHasMore) {
+                                  _showFetchingMoreGamesToast();
                                   context.read<DashboardBloc>().add(
                                         DashboardEvent.getGames(
                                           limit: 30,
@@ -160,9 +172,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         );
 
-    context
-        .read<DashboardBloc>()
-        .add(const DashboardEvent.getGames(limit: 10, offset: 0));
+    context.read<DashboardBloc>().add(
+          const DashboardEvent.getGames(limit: 10, offset: 0),
+        );
   }
 
   void _dashboardListener(BuildContext context, DashboardState state) {
@@ -220,9 +232,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void _fetchGamesByGenre() {
     if (_selectedGenre.value == null) {
       _games.clear();
-      context
-          .read<DashboardBloc>()
-          .add(const DashboardEvent.getGames(limit: 10, offset: 0));
+      context.read<DashboardBloc>().add(
+            const DashboardEvent.getGames(limit: 10, offset: 0),
+          );
     } else {
       _games.clear();
       context.read<DashboardBloc>().add(
@@ -293,6 +305,10 @@ class _HomeScreenState extends State<HomeScreen> {
     if (shouldLogout == true) {
       context.read<AuthenticationBloc>().add(const SignOutEvent());
     }
+  }
+
+  void _showFetchingMoreGamesToast() {
+    Utils.showToast("Fetching more games");
   }
 }
 

@@ -182,7 +182,7 @@ class _DarkColors implements _AppColors {
       );
 
   @override
-  Color get secondary => const Color(0xFF19151f);
+  Color get secondary => const Color(0xFFc2bcbc);
 
   @override
   Color get background => Colors.black;
@@ -191,7 +191,7 @@ class _DarkColors implements _AppColors {
   Color get labelText => const Color(0xFF524f57);
 
   @override
-  Color get text => const Color(0xFF19151f);
+  Color get text => const Color(0xffd8d1e5);
 
   @override
   Color get error => Colors.red;
@@ -203,7 +203,7 @@ class _DarkColors implements _AppColors {
   Color get onError => Colors.white;
 
   @override
-  Color get onPrimary => Colors.black;
+  Color get onPrimary => const Color(0xF6E9F8FF);
 
   @override
   Color get onSecondary => Colors.white;

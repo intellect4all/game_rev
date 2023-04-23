@@ -30,5 +30,7 @@ class DashboardEvent with _$DashboardEvent {
     required String gameId,
     required String comment,
     required int rating,
+    required double latitude,
+    required double longitude,
   }) = PostReview;
 }

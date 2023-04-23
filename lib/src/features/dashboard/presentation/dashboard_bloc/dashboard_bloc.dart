@@ -117,10 +117,13 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   Future<void> _handlePostReview(
       PostReview event, Emitter<DashboardState> emit) async {
     emit(const DashboardState.postingReview());
+
     final res = await _dashboardFacade.postReview(
       gameId: event.gameId,
       comment: event.comment,
       rating: event.rating,
+      latitude: event.latitude,
+      longitude: event.longitude,
     );
 
     res.fold(

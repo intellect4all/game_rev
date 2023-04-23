@@ -1,15 +1,17 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_supercluster/flutter_map_supercluster.dart';
 import 'package:game_rev/injection.dart';
 import 'package:game_rev/src/core/config/navigation/navigation.dart';
+import 'package:game_rev/src/core/constants/extensions/context/context.dart';
 import 'package:game_rev/src/core/utils/enums.dart';
 import 'package:game_rev/src/core/widgets/loading.dart';
 import 'package:game_rev/src/features/authentication/presentation/authentication_bloc.dart';
-import 'package:game_rev/src/features/dashboard/presentation/flagged_reviews.dart';
+import 'package:game_rev/src/features/admin/presentation/screens/flagged_reviews.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../admin_bloc.dart';
@@ -44,7 +46,7 @@ class _AdminScreenState extends State<AdminScreen> {
         ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Admin Screen'),
+          title: const Text('Admin'),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -56,24 +58,7 @@ class _AdminScreenState extends State<AdminScreen> {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/dashboard');
-                },
-                child: const Text('Go to Dashboard'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigation.intent(context, FlaggedReviewsScreens.routeName);
-                },
-                child: const Text('Review flagged Reviews'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  context.read<AuthenticationBloc>().add(const SignOutEvent());
-                },
-                child: const Text('Logout'),
-              ),
+              _buildButtons(),
               const SizedBox(height: 20),
               Expanded(
                 child: BlocBuilder<AdminBloc, AdminState>(
@@ -191,6 +176,48 @@ class _AdminScreenState extends State<AdminScreen> {
           },
         ),
       ],
+    );
+  }
+
+  _buildButtons() {
+    final children = [
+      ElevatedButton(
+        onPressed: () {
+          Navigation.intent(context, FlaggedReviewsScreens.routeName);
+        },
+        child: const Text('See flagged Reviews'),
+      ),
+      const SizedBox(
+        height: 20,
+        width: 20,
+      ),
+      ElevatedButton(
+        onPressed: () {
+          Navigation.intent(context, AddGameScreen.routeName);
+        },
+        child: const Text('Add Game'),
+      ),
+      const SizedBox(
+        height: 20,
+        width: 20,
+      ),
+      ElevatedButton(
+        onPressed: () {
+          context.read<AuthenticationBloc>().add(const SignOutEvent());
+        },
+        child: const Text('Logout'),
+      ),
+    ];
+    if (kIsWeb && !context.isMobile) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: children,
+      );
+    }
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: children,
     );
   }
 }

@@ -53,14 +53,16 @@ class CustomTextInput extends StatelessWidget {
           validator: validator,
           cursorHeight: 16,
           onChanged: onChanged,
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.bodyLarge?.copyWith(
+            color: Colors.black,
+          ),
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
           readOnly: onTap != null,
           onTap: onTap,
           decoration: InputDecoration(
             filled: true,
-            fillColor: context.colorScheme.surface,
+            fillColor: context.colorScheme.secondary,
             prefixIcon: prefixIcon,
             hintText: hintText,
             hintStyle: AppStyles.body5,

@@ -65,9 +65,9 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
           const SizedBox(height: 15),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             decoration: BoxDecoration(
-              color: context.colorScheme.onPrimary,
+              color: Colors.grey[900],
               border: Border(
                 left: BorderSide(
                   color: context.colorScheme.primary,
@@ -76,7 +76,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: context.colorScheme.onSurface.withOpacity(0.2),
+                  color: context.colorScheme.surface,
                   blurRadius: 7,
                   offset: const Offset(0, 2),
                 ),
@@ -101,10 +101,10 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
                         maxLines: 4,
                         decoration: InputDecoration(
                           hintText: 'Write your review here...',
+                          focusColor: context.colorScheme.secondary,
                           hintStyle: context.textTheme.bodyLarge?.copyWith(
                             fontSize: 15,
-                            color:
-                                context.colorScheme.onSurface.withOpacity(0.6),
+                            color: Colors.grey[900],
                             fontWeight: FontWeight.w400,
                           ),
                           border: OutlineInputBorder(
@@ -112,7 +112,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
-                          fillColor: context.colorScheme.onPrimary,
+                          fillColor: Colors.grey[900],
                           contentPadding: const EdgeInsets.symmetric(
                             horizontal: 15,
                             vertical: 15,
@@ -122,7 +122,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
                     ),
                     const SizedBox(width: 15),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_rating == 0) {
                           Utils.showToast('Please rate the game first');
                           return;
@@ -141,11 +141,26 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
                           return;
                         }
 
+                        double latitude = 0.0;
+                        double longitude = 0.0;
+
+                        final res = await Utils.getLocation();
+
+                        if (res == null) {
+                          return Utils.showToast(
+                              'Please enable location services');
+                        }
+
+                        latitude = res[0];
+                        longitude = res.last;
+
                         context.read<DashboardBloc>().add(
                               DashboardEvent.postReview(
                                 comment: text,
                                 gameId: widget.game.id,
                                 rating: _rating,
+                                latitude: latitude,
+                                longitude: longitude,
                               ),
                             );
                       },
@@ -241,11 +256,11 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
   List<Widget> _buildReviews() {
     if (_reviews.isEmpty) {
       return [
-        const Text(
+        Text(
           "No reviews",
           style: TextStyle(
             fontSize: 15,
-            color: Colors.black,
+            color: context.colorScheme.onSurface,
             fontWeight: FontWeight.w400,
           ),
         ),

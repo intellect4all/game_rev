@@ -17,11 +17,13 @@ import 'package:game_rev/splash_screen.dart';
 import 'package:game_rev/src/features/authentication/presentation/signup/signup_screen.dart';
 import 'package:game_rev/src/features/dashboard/presentation/dashboard_bloc/dashboard_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'firebase_options.dart';
 
 import 'injection.dart';
 
 Future<void> main() async {
+  setPathUrlStrategy();
   await initialize();
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,11 +75,10 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         title: 'Game Review',
-
         debugShowCheckedModeBanner: false,
         theme: AppThemes.getTheme(),
         darkTheme: AppThemes.getTheme(themeMode: ThemeMode.dark),
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.dark,
         home: const SplashScreen(),
         onGenerateRoute: GenerateRoutes.onGenerateRoute,
         navigatorKey: navigator,
@@ -93,16 +94,15 @@ class _MyAppState extends State<MyApp> {
   void _startAuthListener() {
     _authStateSubscription =
         getIt<AuthenticationManager>().authStateStream.listen((user) {
-          if (user == null) {
-            final context = navigator.currentContext;
+      if (user == null) {
+        final context = navigator.currentContext;
 
-            log('User is null');
+        log('User is null');
 
-            if (context != null) {
-              Navigation.intentWithClearAllRoutes(
-                  context, LoginScreen.routeName);
-            }
-          }
-        });
+        if (context != null) {
+          Navigation.intentWithClearAllRoutes(context, LoginScreen.routeName);
+        }
+      }
+    });
   }
 }

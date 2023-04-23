@@ -36,7 +36,7 @@ class ReviewCard extends StatelessWidget {
                     reviewData.user.username,
                     style: context.textTheme.bodyLarge?.copyWith(
                       fontSize: 15,
-                      color: context.colorScheme.onSurface,
+                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -45,7 +45,7 @@ class ReviewCard extends StatelessWidget {
                     reviewData.user.address,
                     style: context.textTheme.bodyLarge?.copyWith(
                       fontSize: 15,
-                      color: context.colorScheme.onSurface.withOpacity(0.6),
+                      color: Colors.grey,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -69,7 +69,7 @@ class ReviewCard extends StatelessWidget {
                   reviewData.review.comment,
                   style: context.textTheme.bodyLarge?.copyWith(
                     fontSize: 15,
-                    color: context.colorScheme.onSurface.withOpacity(0.6),
+                    color: context.colorScheme.secondary,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

@@ -20,7 +20,8 @@ class AuthenticationBloc
 
   AuthenticationBloc({
     required AuthFacade authFacade,
-  })  : _authFacade = authFacade,
+  })
+      : _authFacade = authFacade,
         super(AuthenticationInitial()) {
     on<SignupEvent>(_handleSignUpEvent);
     on<VerifyEmailEvent>(_handleVerifyEmailEvent);
@@ -31,8 +32,8 @@ class AuthenticationBloc
     on<SignOutEvent>(_handleSignOutEvent);
   }
 
-  Future<void> _handleSignUpEvent(
-      SignupEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _handleSignUpEvent(SignupEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     final signedUser = await _authFacade.signUp(
       SignUpUserParams(
@@ -51,19 +52,15 @@ class AuthenticationBloc
       ),
     );
     signedUser.fold(
-      (left) {
-        log('Error signing up user: ${left.message}');
+          (left) {
         emit(AuthenticationError(message: left.message));
       },
-      (res) {
+          (res) {
         res.fold(
-          (left) {
-            log('User signed up but login failed');
+              (left) {
             emit(UserSignedUpButRequiredLogin());
           },
-          (success) {
-            log('User signed up successfully');
-
+              (success) {
             emit(AccountCreatedSuccessfully(user: success.user));
           },
         );
@@ -71,8 +68,8 @@ class AuthenticationBloc
     );
   }
 
-  Future<void> _handleVerifyEmailEvent(
-      VerifyEmailEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _handleVerifyEmailEvent(VerifyEmailEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     final res = await _authFacade.verifyEmail(
       VerifyEmailParams(
@@ -83,15 +80,15 @@ class AuthenticationBloc
     );
 
     res.fold(
-      (left) => emit(AuthenticationError(message: left.message)),
-      (success) {
+          (left) => emit(AuthenticationError(message: left.message)),
+          (success) {
         emit(EmailVerificationSuccess());
       },
     );
   }
 
-  Future<void> _handleResendOtpEvent(
-      ResendOtpEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _handleResendOtpEvent(ResendOtpEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     final res = await _authFacade.sendEmailOtp(
       ResendOtpParams(
@@ -100,13 +97,13 @@ class AuthenticationBloc
       ),
     );
     res.fold(
-      (left) => emit(AuthenticationError(message: left.message)),
-      (success) => emit(OtpResendSuccess(id: success)),
+          (left) => emit(AuthenticationError(message: left.message)),
+          (success) => emit(OtpResendSuccess(id: success)),
     );
   }
 
-  Future<void> _handleLoginUserEvent(
-      LoginUserEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _handleLoginUserEvent(LoginUserEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     final res = await _authFacade.login(
       LoginUserParams(
@@ -116,11 +113,11 @@ class AuthenticationBloc
     );
 
     res.fold(
-      (left) {
+          (left) {
         emit(AuthenticationError(message: left.message));
         return null;
       },
-      (success) => emit(LoginSuccess(user: success.user)),
+          (success) => emit(LoginSuccess(user: success.user)),
     );
   }
 
@@ -130,17 +127,16 @@ class AuthenticationBloc
     emit(AuthenticationLoading());
     final res = await _authFacade.initiateForgetPassword(event.email);
     res.fold(
-      (left) => emit(AuthenticationError(message: left.message)),
-      (success) => emit(
-        ForgetPasswordInitiated(id: success, email: event.email),
-      ),
+          (left) => emit(AuthenticationError(message: left.message)),
+          (success) =>
+          emit(
+            ForgetPasswordInitiated(id: success, email: event.email),
+          ),
     );
   }
 
-  Future<void> _handleResetPasswordEvent(
-    ResetPasswordOtpEvent event,
-    Emitter<AuthenticationState> emit,
-  ) async {
+  Future<void> _handleResetPasswordEvent(ResetPasswordOtpEvent event,
+      Emitter<AuthenticationState> emit,) async {
     emit(AuthenticationLoading());
     final res = await _authFacade.resetPassword(
       ResetPasswordParams(
@@ -152,20 +148,20 @@ class AuthenticationBloc
     );
 
     res.fold(
-      (left) => emit(AuthenticationError(message: left.message)),
-      (success) {
+          (left) => emit(AuthenticationError(message: left.message)),
+          (success) {
         emit(PasswordResetSuccess());
       },
     );
   }
 
-  Future<void> _handleSignOutEvent(
-      SignOutEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _handleSignOutEvent(SignOutEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     final res = await _authFacade.signOut();
     res.fold(
-      (left) => emit(AuthenticationError(message: left.message)),
-      (success) {
+          (left) => emit(AuthenticationError(message: left.message)),
+          (success) {
         emit(UserSignedOut());
       },
     );

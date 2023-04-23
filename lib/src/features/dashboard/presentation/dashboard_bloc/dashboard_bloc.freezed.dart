@@ -25,7 +25,8 @@ mixin _$DashboardEvent {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +37,9 @@ mixin _$DashboardEvent {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +49,9 @@ mixin _$DashboardEvent {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,7 +150,8 @@ class _$_Started implements _Started {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
     return started();
@@ -159,7 +165,9 @@ class _$_Started implements _Started {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
     return started?.call();
   }
@@ -172,7 +180,9 @@ class _$_Started implements _Started {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -308,7 +318,8 @@ class _$GetGenres implements GetGenres {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
     return getGenres(limit, offset);
@@ -322,7 +333,9 @@ class _$GetGenres implements GetGenres {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
     return getGenres?.call(limit, offset);
   }
@@ -335,7 +348,9 @@ class _$GetGenres implements GetGenres {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (getGenres != null) {
@@ -477,7 +492,8 @@ class _$GetGames implements GetGames {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
     return getGames(limit, offset);
@@ -491,7 +507,9 @@ class _$GetGames implements GetGames {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
     return getGames?.call(limit, offset);
   }
@@ -504,7 +522,9 @@ class _$GetGames implements GetGames {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (getGames != null) {
@@ -657,7 +677,8 @@ class _$GetGamesByGenre implements GetGamesByGenre {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
     return getGamesByGenre(limit, offset, genreSlug);
@@ -671,7 +692,9 @@ class _$GetGamesByGenre implements GetGamesByGenre {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
     return getGamesByGenre?.call(limit, offset, genreSlug);
   }
@@ -684,7 +707,9 @@ class _$GetGamesByGenre implements GetGamesByGenre {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (getGamesByGenre != null) {
@@ -839,7 +864,8 @@ class _$GetReviewsForGame implements GetReviewsForGame {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
     return getReviewsForGame(limit, offset, gameId);
@@ -853,7 +879,9 @@ class _$GetReviewsForGame implements GetReviewsForGame {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
     return getReviewsForGame?.call(limit, offset, gameId);
   }
@@ -866,7 +894,9 @@ class _$GetReviewsForGame implements GetReviewsForGame {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (getReviewsForGame != null) {
@@ -939,7 +969,12 @@ abstract class _$$PostReviewCopyWith<$Res> {
           _$PostReview value, $Res Function(_$PostReview) then) =
       __$$PostReviewCopyWithImpl<$Res>;
   @useResult
-  $Res call({String gameId, String comment, int rating});
+  $Res call(
+      {String gameId,
+      String comment,
+      int rating,
+      double latitude,
+      double longitude});
 }
 
 /// @nodoc
@@ -956,6 +991,8 @@ class __$$PostReviewCopyWithImpl<$Res>
     Object? gameId = null,
     Object? comment = null,
     Object? rating = null,
+    Object? latitude = null,
+    Object? longitude = null,
   }) {
     return _then(_$PostReview(
       gameId: null == gameId
@@ -970,6 +1007,14 @@ class __$$PostReviewCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as int,
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -978,7 +1023,11 @@ class __$$PostReviewCopyWithImpl<$Res>
 
 class _$PostReview implements PostReview {
   const _$PostReview(
-      {required this.gameId, required this.comment, required this.rating});
+      {required this.gameId,
+      required this.comment,
+      required this.rating,
+      required this.latitude,
+      required this.longitude});
 
   @override
   final String gameId;
@@ -986,10 +1035,14 @@ class _$PostReview implements PostReview {
   final String comment;
   @override
   final int rating;
+  @override
+  final double latitude;
+  @override
+  final double longitude;
 
   @override
   String toString() {
-    return 'DashboardEvent.postReview(gameId: $gameId, comment: $comment, rating: $rating)';
+    return 'DashboardEvent.postReview(gameId: $gameId, comment: $comment, rating: $rating, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -999,11 +1052,16 @@ class _$PostReview implements PostReview {
             other is _$PostReview &&
             (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.rating, rating) || other.rating == rating));
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, gameId, comment, rating);
+  int get hashCode =>
+      Object.hash(runtimeType, gameId, comment, rating, latitude, longitude);
 
   @JsonKey(ignore: true)
   @override
@@ -1021,10 +1079,11 @@ class _$PostReview implements PostReview {
         getGamesByGenre,
     required TResult Function(int limit, int offset, String gameId)
         getReviewsForGame,
-    required TResult Function(String gameId, String comment, int rating)
+    required TResult Function(String gameId, String comment, int rating,
+            double latitude, double longitude)
         postReview,
   }) {
-    return postReview(gameId, comment, rating);
+    return postReview(gameId, comment, rating, latitude, longitude);
   }
 
   @override
@@ -1035,9 +1094,11 @@ class _$PostReview implements PostReview {
     TResult? Function(int limit, int offset)? getGames,
     TResult? Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult? Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult? Function(String gameId, String comment, int rating)? postReview,
+    TResult? Function(String gameId, String comment, int rating,
+            double latitude, double longitude)?
+        postReview,
   }) {
-    return postReview?.call(gameId, comment, rating);
+    return postReview?.call(gameId, comment, rating, latitude, longitude);
   }
 
   @override
@@ -1048,11 +1109,13 @@ class _$PostReview implements PostReview {
     TResult Function(int limit, int offset)? getGames,
     TResult Function(int limit, int offset, String genreSlug)? getGamesByGenre,
     TResult Function(int limit, int offset, String gameId)? getReviewsForGame,
-    TResult Function(String gameId, String comment, int rating)? postReview,
+    TResult Function(String gameId, String comment, int rating, double latitude,
+            double longitude)?
+        postReview,
     required TResult orElse(),
   }) {
     if (postReview != null) {
-      return postReview(gameId, comment, rating);
+      return postReview(gameId, comment, rating, latitude, longitude);
     }
     return orElse();
   }
@@ -1105,11 +1168,15 @@ abstract class PostReview implements DashboardEvent {
   const factory PostReview(
       {required final String gameId,
       required final String comment,
-      required final int rating}) = _$PostReview;
+      required final int rating,
+      required final double latitude,
+      required final double longitude}) = _$PostReview;
 
   String get gameId;
   String get comment;
   int get rating;
+  double get latitude;
+  double get longitude;
   @JsonKey(ignore: true)
   _$$PostReviewCopyWith<_$PostReview> get copyWith =>
       throw _privateConstructorUsedError;

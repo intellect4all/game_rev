@@ -86,14 +86,21 @@ class DashboardRemoteSource {
     return data.map((e) => ReviewDataModel.fromJson(e)).toList();
   }
 
-  Future<String> postReview(
-      {required String gameId,
-      required String comment,
-      required int rating}) async {
+  Future<String> postReview({
+    required String gameId,
+    required String comment,
+    required int rating,
+    required double latitude,
+    required double longitude,
+  }) async {
     final body = {
       'gameId': gameId,
       'comment': comment,
       'rating': rating,
+      'location': {
+        'latitude': latitude,
+        'longitude': longitude,
+      }
     };
 
     final res = await _apiCaller.post(

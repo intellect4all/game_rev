@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../constants/app_colors.dart';
 
@@ -33,5 +34,16 @@ class Utils {
 
   static DateTime parseDate(String date) {
     return DateTime.parse(date);
+  }
+
+  static Future<List<double>?> getLocation() async {
+    try {
+      final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      return [position.latitude, position.longitude];
+    } catch (e) {
+      return null;
+    }
   }
 }

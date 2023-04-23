@@ -51,7 +51,8 @@ class DioApiCaller extends ApiCaller {
       return ApiResponse(
         data: e.response?.data,
         statusCode: e.response?.statusCode ?? 500,
-        message: e.response?.data['message'] as String,
+        message:
+            (e.response?.data['message'].toString() ?? "Something went wrong"),
       );
     } catch (e) {
       return ApiResponse(

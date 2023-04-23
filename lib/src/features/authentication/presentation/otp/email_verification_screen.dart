@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:game_rev/src/features/authentication/data/data_source/authentication_data_source.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-
 import '../../../../core/config/navigation/navigation.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_images.dart';
@@ -51,7 +50,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   void confirmOTP(BuildContext context) {
     final otp = int.tryParse(pinTextController.text);
     if (otp != null) {
-      log("otp: $otp");
       context.read<AuthenticationBloc>().add(
             VerifyEmailEvent(
               otp: otp.toString(),

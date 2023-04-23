@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_rev/src/features/dashboard/domain/entity/paginated_response.dart';
 
-import '../../../core/utils/utils.dart';
-import '../../admin/presentation/admin_bloc.dart';
-import '../domain/entity/review.dart';
+import '../../../../core/utils/utils.dart';
+import '../admin_bloc.dart';
+import '../../../dashboard/domain/entity/review.dart';
 
 class FlaggedReviewsScreens extends StatefulWidget {
   static const routeName = '/flagged-reviews';

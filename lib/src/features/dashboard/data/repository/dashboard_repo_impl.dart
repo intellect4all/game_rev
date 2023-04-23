@@ -74,13 +74,21 @@ class DashboardRepoImpl implements DashboardRepository, HandleFailureCheck {
   }
 
   @override
-  Future<Either<Failure, String>> postReview(
-      {required String gameId,
-      required String comment,
-      required int rating}) async {
+  Future<Either<Failure, String>> postReview({
+    required String gameId,
+    required String comment,
+    required int rating,
+    required double latitude,
+    required double longitude,
+  }) async {
     return handleFailureCheck(() async {
       return await remoteSource.postReview(
-          gameId: gameId, comment: comment, rating: rating);
+        gameId: gameId,
+        comment: comment,
+        rating: rating,
+        latitude: latitude,
+        longitude: longitude,
+      );
     });
   }
 }

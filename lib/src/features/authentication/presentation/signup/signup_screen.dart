@@ -13,6 +13,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:string_extensions/string_extensions.dart';
 
 import '../../../../core/config/navigation/navigation.dart';
+import '../../../../core/utils/utils.dart';
 import '../../../../core/utils/validator.dart';
 import '../../../../core/widgets/buttons/custom_button.dart';
 import '../../../../core/widgets/buttons/custom_text_button.dart';
@@ -53,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final textControllers = <TextFields, TextEditingController>{};
 
   final ValueNotifier<CountryWithPhoneCode> country =
-      ValueNotifier(const CountryWithPhoneCode.gb());
+  ValueNotifier(const CountryWithPhoneCode.gb());
 
   final fields = <TextFieldParams>[];
   String flagEmoji = "🇬🇧";
@@ -80,7 +81,7 @@ class _SignupScreenState extends State<SignupScreen> {
     double latitude = 0.0;
     double longitude = 0.0;
 
-    final res = await _getLocation();
+    final res = await Utils.getLocation();
 
     if (res == null) {
       return _showSnackBar("Please enable location services");
@@ -98,8 +99,10 @@ class _SignupScreenState extends State<SignupScreen> {
           firstName: textControllers[TextFields.firstName]?.text ?? "",
           lastName: textControllers[TextFields.lastName]?.text ?? "",
           phone:
-              textControllers[TextFields.phone]?.text.trim().removeWhiteSpace ??
-                  "",
+          textControllers[TextFields.phone]?.text
+              .trim()
+              .removeWhiteSpace ??
+              "",
           userName: textControllers[TextFields.userName]?.text ?? "",
           role: UserRole.user,
           city: textControllers[TextFields.city]?.text ?? "",
@@ -125,6 +128,10 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (Navigator.of(context).canPop())
+                    const BackButton(
+                      color: Colors.white,
+                    ),
                   Padding(
                     padding: const EdgeInsets.only(right: 24.0, top: 20),
                     child: Text(
@@ -139,21 +146,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         children: fields
                             .map(
                               (e) =>
-                                  ValueListenableBuilder<CountryWithPhoneCode>(
-                                      valueListenable: country,
-                                      builder: (context, value, child) {
-                                        return CustomTextInput(
-                                          label: e.label,
-                                          prefixIcon: e.suffixIcon,
-                                          validator: e.validator,
-                                          keyboardType: e.keyboardType,
-                                          obscureText: e.obscureText,
-                                          controller: e.controller,
-                                          inputFormatters: e.inputFormatters,
-                                          onTap: e.onTap,
-                                        );
-                                      }),
-                            )
+                              ValueListenableBuilder<CountryWithPhoneCode>(
+                                  valueListenable: country,
+                                  builder: (context, value, child) {
+                                    return CustomTextInput(
+                                      label: e.label,
+                                      prefixIcon: e.suffixIcon,
+                                      validator: e.validator,
+                                      keyboardType: e.keyboardType,
+                                      obscureText: e.obscureText,
+                                      controller: e.controller,
+                                      inputFormatters: e.inputFormatters,
+                                      onTap: e.onTap,
+                                    );
+                                  }),
+                        )
                             .toList()),
                   ),
                   BlocConsumer<AuthenticationBloc, AuthenticationState>(
@@ -183,7 +190,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Text(
                           "Login Now",
                           style: context.textTheme.bodyMedium?.copyWith(
-                            color: context.theme.primaryColor,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       )
@@ -198,8 +205,8 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  void _authenticationBlocListener(
-      BuildContext context, AuthenticationState state) {
+  void _authenticationBlocListener(BuildContext context,
+      AuthenticationState state) {
     if (state is AuthenticationError) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -291,13 +298,13 @@ class _SignupScreenState extends State<SignupScreen> {
             onSelect: (Country country) async {
               textControllers[TextFields.country]!.text = country.name;
               final allCountries = await getAllSupportedRegions();
-              log(allCountries.toString());
+
               final c = allCountries.keys.firstWhere(
-                  (element) => element == country.countryCode,
+                      (element) => element == country.countryCode,
                   orElse: () => "UK");
-              log(c);
+
               final selectedCountry = allCountries[c]!;
-              log(selectedCountry.toString());
+
               this.country.value = selectedCountry;
               flagEmoji = country.flagEmoji;
 
@@ -336,17 +343,6 @@ class _SignupScreenState extends State<SignupScreen> {
         controller: textControllers[TextFields.city],
       ),
     ]);
-  }
-
-  Future<List<double>?> _getLocation() async {
-    try {
-      final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
-      return [position.latitude, position.longitude];
-    } catch (e) {
-      return null;
-    }
   }
 
   void _sendSignUpReq(SignupEvent signupEvent) {

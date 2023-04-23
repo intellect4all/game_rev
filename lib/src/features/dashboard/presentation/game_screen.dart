@@ -29,7 +29,7 @@ class _GameScreenState extends State<GameScreen> {
   final ValueNotifier<Rating> _rating =
       ValueNotifier(const Rating(count: 0, sum: 0));
 
-  GlobalKey _abcKey = GlobalKey();
+  final GlobalKey _abcKey = GlobalKey();
 
   @override
   void initState() {
@@ -69,8 +69,6 @@ class _GameScreenState extends State<GameScreen> {
               // context
               //     .read<DashboardBloc>()
               //     .add(DashboardEvent.loadReviews(widget.game.id));
-
-              log('ScrollEndNotification');
             }
           }
           if (notification is ScrollUpdateNotification) {
@@ -106,7 +104,14 @@ class _GameScreenState extends State<GameScreen> {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: context.colorScheme.onPrimary,
+                                gradient: LinearGradient(
+                                  colors: [
+                                    context.colorScheme.primary,
+                                    Colors.grey[900] ?? Colors.black,
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
                                     color: context.colorScheme.onSurface
@@ -305,7 +310,7 @@ class TitleSection extends StatelessWidget {
             style: context.textTheme.bodyLarge?.copyWith(
               fontSize: 15,
               height: 1.5,
-              color: context.colorScheme.primary,
+              color: context.colorScheme.onSurface.withOpacity(0.6),
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -315,7 +320,7 @@ class TitleSection extends StatelessWidget {
             style: context.textTheme.bodyLarge?.copyWith(
               fontSize: 15,
               height: 1.5,
-              color: context.colorScheme.onSurface.withOpacity(0.6),
+              color: context.colorScheme.secondary,
               fontWeight: FontWeight.w400,
             ),
           ),

@@ -25,6 +25,8 @@ class AuthenticationManager {
 
   LoginDtoModel? get userData => _userData;
 
+  static const fiveDaysInMilliSeconds = 5 * 24 * 60 * 60 * 1000;
+
   static Future<AuthenticationManager> init(Box box) async {
     _instance = AuthenticationManager._internal(box);
 
@@ -35,13 +37,12 @@ class AuthenticationManager {
           await _instance!._hiveBox.get(LocalStorage.timeUserDetailsSavedKey);
       final timeNow = DateTime.now().millisecondsSinceEpoch;
 
-      // if the user details are older than 1 day, delete them
-      if (timeNow - timeSaved > 86400000) {
+      // if the user details are older than 5 day, delete them
+      if (timeNow - timeSaved > fiveDaysInMilliSeconds) {
         await _instance!._hiveBox.delete(LocalStorage.userDetailsKey);
         await _instance!._hiveBox.delete(LocalStorage.timeUserDetailsSavedKey);
       } else {
         final userJson = jsonDecode(userRaw);
-        log('User details are being fetched from hive box: $userRaw');
         _instance!._userData = LoginDtoModel.fromJson(userJson);
         _instance!._authState.add(_instance!._userData);
       }
@@ -59,9 +60,7 @@ class AuthenticationManager {
 
   Future<void> logIn(LoginDtoModel user) async {
     if (_hiveBox.isOpen) {
-      log('Box is open and user details are being saved');
       final jj = jsonEncode(user.toJson());
-      log('jj: $jj');
       await _hiveBox.put(LocalStorage.userDetailsKey, jj);
       await _hiveBox.put(LocalStorage.timeUserDetailsSavedKey,
           DateTime.now().millisecondsSinceEpoch);
@@ -86,7 +85,6 @@ class AuthenticationManager {
 
   String? getJwtToken() {
     final jwt = _userData?.jwtToken;
-    log('jwt: $jwt');
     return jwt;
   }
 }

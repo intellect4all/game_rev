@@ -29,9 +29,19 @@ class DashboardFacade {
         limit: limit, offset: offset, gameId: gameId);
   }
 
-  Future<Either<Failure, String>> postReview(
-      {required String gameId, required String comment, required int rating}) {
+  Future<Either<Failure, String>> postReview({
+    required String gameId,
+    required String comment,
+    required int rating,
+    required double latitude,
+    required double longitude,
+  }) {
     return _dashboardRepository.postReview(
-        gameId: gameId, comment: comment, rating: rating);
+      gameId: gameId,
+      comment: comment,
+      rating: rating,
+      latitude: latitude,
+      longitude: longitude,
+    );
   }
 }
