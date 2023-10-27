@@ -1,16 +1,14 @@
 # game_rev
 
-A simple game review application
+A simple POC game review application for Demo to college students.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Featuring:
+Authentication
+Content Management
+Account Management
+Admin Access
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The POC Firebase backend written with Express in Typescript is
+available [here](https://github.com/intellect4all/game_rev_firebase)
