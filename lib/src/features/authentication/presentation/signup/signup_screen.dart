@@ -54,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final textControllers = <TextFields, TextEditingController>{};
 
   final ValueNotifier<CountryWithPhoneCode> country =
-  ValueNotifier(const CountryWithPhoneCode.gb());
+      ValueNotifier(const CountryWithPhoneCode.gb());
 
   final fields = <TextFieldParams>[];
   String flagEmoji = "🇬🇧";
@@ -99,10 +99,8 @@ class _SignupScreenState extends State<SignupScreen> {
           firstName: textControllers[TextFields.firstName]?.text ?? "",
           lastName: textControllers[TextFields.lastName]?.text ?? "",
           phone:
-          textControllers[TextFields.phone]?.text
-              .trim()
-              .removeWhiteSpace ??
-              "",
+              textControllers[TextFields.phone]?.text.trim().removeWhiteSpace ??
+                  "",
           userName: textControllers[TextFields.userName]?.text ?? "",
           role: UserRole.user,
           city: textControllers[TextFields.city]?.text ?? "",
@@ -146,21 +144,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         children: fields
                             .map(
                               (e) =>
-                              ValueListenableBuilder<CountryWithPhoneCode>(
-                                  valueListenable: country,
-                                  builder: (context, value, child) {
-                                    return CustomTextInput(
-                                      label: e.label,
-                                      prefixIcon: e.suffixIcon,
-                                      validator: e.validator,
-                                      keyboardType: e.keyboardType,
-                                      obscureText: e.obscureText,
-                                      controller: e.controller,
-                                      inputFormatters: e.inputFormatters,
-                                      onTap: e.onTap,
-                                    );
-                                  }),
-                        )
+                                  ValueListenableBuilder<CountryWithPhoneCode>(
+                                      valueListenable: country,
+                                      builder: (context, value, child) {
+                                        return CustomTextInput(
+                                          label: e.label,
+                                          prefixIcon: e.suffixIcon,
+                                          validator: e.validator,
+                                          keyboardType: e.keyboardType,
+                                          obscureText: e.obscureText,
+                                          controller: e.controller,
+                                          inputFormatters: e.inputFormatters,
+                                          onTap: e.onTap,
+                                        );
+                                      }),
+                            )
                             .toList()),
                   ),
                   BlocConsumer<AuthenticationBloc, AuthenticationState>(
@@ -205,8 +203,8 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  void _authenticationBlocListener(BuildContext context,
-      AuthenticationState state) {
+  void _authenticationBlocListener(
+      BuildContext context, AuthenticationState state) {
     if (state is AuthenticationError) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -286,7 +284,7 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
       TextFieldParams(
         label: "Country",
-        validator: Validators.name(),
+        validator: Validators.required(),
         keyboardType: TextInputType.name,
         textInputAction: TextInputAction.next,
         controller: textControllers[TextFields.country],
@@ -298,9 +296,10 @@ class _SignupScreenState extends State<SignupScreen> {
             onSelect: (Country country) async {
               textControllers[TextFields.country]!.text = country.name;
               final allCountries = await getAllSupportedRegions();
-
               final c = allCountries.keys.firstWhere(
-                      (element) => element == country.countryCode,
+                  (element) =>
+                      element.toLowerCase() ==
+                      country.countryCode.toLowerCase(),
                   orElse: () => "UK");
 
               final selectedCountry = allCountries[c]!;
